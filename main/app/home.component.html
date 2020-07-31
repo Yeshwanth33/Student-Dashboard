@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th colspan="4">Student Result Board</th>
+  </tr>
+  <tr>
+    <th class="subheading">Student Name</th>
+    <th class="subheading">Roll Number</th>
+    <th class="subheading">Total Marks</th>
+    <th class="subheading">Status</th>
+  </tr>
+  <tr *ngFor = "let student of students" style="color: {{student.color}}" >
+    <td>{{student.name | titlecase}}</td>
+    <td>{{student.rollNo}}</td>
+    <td>{{student.total}}</td>
+    <td>{{student.status}}</td>
+
+  </tr>
+
+</table>
