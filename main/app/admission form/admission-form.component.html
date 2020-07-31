@@ -1,0 +1,94 @@
+
+ <label>
+    Name:<br>
+    <input type="text" [formControl]="name" [pattern]="namePattern" color="blue" font-family="serif">
+ </label><br>
+<label>
+  Last Name:<br>
+  <input type="text" [formControl]="lastName" [pattern]="namePattern">
+</label><br>
+<label>
+  Class:<br>
+  <input type="text" [formControl]="studentClass" [pattern]="classPattern" >
+</label><br>
+<label>
+  Year of passing:<br>
+  <input type="number" [formControl]="year">
+</label><br>
+<label>
+  Percentage of marks:<br>
+  <input type="number" [formControl]="percentage">
+</label><br><br>
+
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+     style="color:red">
+
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.maxlength">
+    Name cannot exceed 20 characters.
+  </div>
+  <div *ngIf="name.errors.pattern">
+    Name can only contain alphabets.
+  </div>
+
+</div>
+<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+     style="color:red">
+
+  <div *ngIf="lastName.errors.required">
+    Last Name is required.
+  </div>
+  <div *ngIf="lastName.errors.maxlength">
+    Last Name cannot exceed 20 characters.
+  </div>
+  <div *ngIf="lastName.errors.pattern">
+    Last Name can only contain alphabets.
+  </div>
+
+</div>
+<div *ngIf="studentClass.invalid && (studentClass.dirty || studentClass.touched)"
+     style="color:red">
+
+  <div *ngIf="studentClass.errors.required">
+    Class is required.
+  </div>
+  <div *ngIf="studentClass.errors.pattern">
+    Class can only contain alpha numeric values
+  </div>
+
+</div>
+<div *ngIf="year.invalid && (year.dirty || year.touched)"
+     style="color:red">
+
+  <div *ngIf="year.errors.required">
+    Year is required.
+  </div>
+  <div *ngIf="year.errors.maxYear">
+    Year cannot be later than 2017.
+  </div>
+
+
+
+</div>
+<div *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)"
+     style="color:red">
+
+  <div *ngIf="percentage.errors.required">
+    Percentage is required.
+  </div>
+
+
+</div>
+<div *ngIf="aadmissionForm.valid">
+  <button onclick="alert('Form submitted without errors')">Submit</button>
+</div>
+  <div *ngIf="aadmissionForm.invalid">
+    <button disabled="true">Submit</button>
+  </div>
+
+
+
+
